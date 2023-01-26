@@ -1,1 +1,9 @@
-Livewireテスト
+<html>
+    <head>
+        @livewireStyles
+    </head>
+    <body>
+        Livewireテスト
+        @livewireScripts
+    </body>
+</html>
