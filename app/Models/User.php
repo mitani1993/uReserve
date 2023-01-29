@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Event;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -59,4 +60,10 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function events()
+    {
+        return $this->belongsToMany(Event::class, 'reservations')
+            ->withPivot('id', 'number_of_people', 'canceled_date');
+    }
 }
